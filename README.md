@@ -39,17 +39,27 @@ Mở terminal và chạy:
 ```sh
 git clone https://github.com/your-github/flask-tiny-app.git
 cd flask-tiny-app
+``` 
 
 ### 🔹 ** Bước 3: Tạo môi trường ảo (khuyến khích)**
+Mở terminal và chạy:  
+```sh
 python -m venv venv
 source venv/bin/activate  # Trên macOS/Linux
 venv\Scripts\activate      # Trên Windows
+``` 
 
 ### 🔹 ** Bước 4: Cài đặt thư viện**
+Mở terminal và chạy:  
+```sh
 pip install -r requirements.txt
+``` 
 
 ### 🔹 ** Bước 5: Chạy ứng dụng**
+Mở terminal và chạy:  
+```sh
 python app.py
+``` 
 Mở trình duyệt và truy cập:
 http://127.0.0.1:5000
 
@@ -67,22 +77,8 @@ Password: admin123
 ---
 
 ** 6️⃣ Tác giả
-📌 Tên của bạn
-📌 Email: [email của bạn]
-📌 GitHub: [GitHub của bạn]
+📌 Võ Anh Kiệt
+📌 Email: kietvoiuh@gmail.com
+📌 GitHub: kietvo22001245
 
 🔥 Chúc bạn code vui vẻ! 🚀
-
-
----
-
-## ✅ **Hướng dẫn sử dụng file `README.md`**
-1️⃣ **Tạo file `README.md`** trong thư mục project  
-2️⃣ **Sao chép & dán nội dung trên** vào file  
-3️⃣ **Thay thế `[Tên của bạn]`, `[Mã sinh viên]`, `[GitHub của bạn]`...**  
-4️⃣ **Lưu file & push lên GitHub**  
-
-```sh
-git add README.md
-git commit -m "Thêm README.md"
-git push origin main
