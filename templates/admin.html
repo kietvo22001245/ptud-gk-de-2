@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Hệ Thống</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Trang Quản Trị</h2>
+        
+        <h3>Danh sách người dùng</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tên đăng nhập</th>
+                    <th>Quyền</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{% if user.is_admin %}Admin{% else %}User{% endif %}</td>
+                    <td>
+                        {% if not user.is_admin %}
+                        <form action="{{ url_for('delete_user', user_id=user.id) }}" method="post" style="display:inline;">
+                            <button type="submit" onclick="return confirm('Bạn có chắc muốn xóa?')">Xóa</button>
+                        </form>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <h3>Danh sách nhiệm vụ</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tiêu đề</th>
+                    <th>Trạng thái</th>
+                    <th>Người dùng</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                <tr>
+                    <td>{{ task.id }}</td>
+                    <td>{{ task.title }}</td>
+                    <td>{{ task.status }}</td>
+                    <td>{{ task.user_id }}</td>
+                    <td>
+                        <form action="{{ url_for('delete_task', task_id=task.id) }}" method="post" style="display:inline;">
+                            <button type="submit" onclick="return confirm('Bạn có chắc muốn xóa?')">Xóa</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <br>
+        <a href="{{ url_for('dashboard') }}">Quay lại</a>
+        <a href="{{ url_for('logout') }}">Đăng xuất</a>
+    </div>
+</body>
+</html>
